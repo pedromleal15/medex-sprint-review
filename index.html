@@ -478,7 +478,7 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
     <div class="eyebrow fade-up">Health Check</div>
     <h2 class="fade-up">Velocidade & <span class="accent">Saúde</span></h2>
     <div class="divider fade-up"></div>
-    <p class="subtitle subtitle-wide fade-up" style="margin-bottom:28px">Evolução da velocidade da squad e composição das entregas — features vs. débito técnico ao longo das sprints.</p>
+    <p class="subtitle subtitle-wide fade-up" style="margin-bottom:28px">Evolução da velocidade da squad e composição das entregas — features vs. pendentes a aprovação ao longo das sprints.</p>
     <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
       <div class="chart-box">
         <h4 style="font-size:13px;font-weight:700;color:var(--gray-200);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px">Velocidade por Sprint</h4>
@@ -678,9 +678,9 @@ function renderDebt(){
     ...chartOpts,
     chart:{...chartOpts.chart,type:'donut',height:220,animations:{enabled:true,easing:'easeinout',speed:800}},
     series:[68,32],
-    labels:['Features','Débito Técnico'],
-    colors:['#00A3FF','#EF4444'],
-    plotOptions:{pie:{donut:{size:'65%',labels:{show:true,total:{show:true,label:'Débito',fontSize:'13px',color:'#64748B',formatter:()=>'32%'}}}}},
+    labels:['Features','Pendente a aprovação'],
+    colors:['#00A3FF','#F59E0B'],
+    plotOptions:{pie:{donut:{size:'65%',labels:{show:true,total:{show:true,label:'Pendente',fontSize:'13px',color:'#64748B',formatter:()=>'32%'}}}}},
     dataLabels:{enabled:false},
     legend:{position:'bottom',labels:{colors:'#94A3B8'},fontSize:'12px'},
     stroke:{show:false}
