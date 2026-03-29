@@ -34,7 +34,7 @@ body { font-family: var(--font); background: #050A14; color: var(--white); overf
   position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
   padding: 44px 64px; opacity: 0; visibility: hidden;
   transition: opacity 0.5s ease, transform 0.5s ease;
-  transform: translateX(40px); background: var(--blue-deep); overflow: hidden;
+  transform: translateX(40px); background: var(--blue-deep); overflow-y: auto; overflow-x: hidden;
 }
 .slide.active { opacity: 1; visibility: visible; transform: translateX(0); }
 .slide.exit { opacity: 0; transform: translateX(-40px); }
@@ -213,7 +213,7 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
 
 <div class="topbar"><div class="topbar-progress" id="progress"></div></div>
 <div class="brand">MEDEX</div>
-<div class="slide-number-badge" id="slideNum">01 / 08</div>
+<div class="slide-number-badge" id="slideNum">01 / 09</div>
 <button class="fullscreen-btn" onclick="toggleFullscreen()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg> Fullscreen</button>
 
 <div class="deck" id="deck">
@@ -473,8 +473,26 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
     </div>
   </div>
 
-  <!-- ═══ SLIDE 8 — PRÓXIMAS PRIORIDADES ═══ -->
+  <!-- ═══ SLIDE 8 — VELOCIDADE & SAÚDE ═══ -->
   <div class="slide" id="slide-8">
+    <div class="eyebrow fade-up">Health Check</div>
+    <h2 class="fade-up">Velocidade & <span class="accent">Saúde</span></h2>
+    <div class="divider fade-up"></div>
+    <p class="subtitle subtitle-wide fade-up" style="margin-bottom:28px">Evolução da velocidade da squad e composição das entregas — features vs. débito técnico ao longo das sprints.</p>
+    <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+      <div class="chart-box">
+        <h4 style="font-size:13px;font-weight:700;color:var(--gray-200);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px">Velocidade por Sprint</h4>
+        <div id="chart-velocity" style="min-height:220px"></div>
+      </div>
+      <div class="chart-box">
+        <h4 style="font-size:13px;font-weight:700;color:var(--gray-200);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px">Composição Sprint 10</h4>
+        <div id="chart-debt" style="min-height:220px"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 9 — PRÓXIMAS PRIORIDADES ═══ -->
+  <div class="slide" id="slide-9">
     <div class="eyebrow fade-up">Próximos Passos</div>
     <h2 class="fade-up">Próximas <span class="accent">Prioridades</span></h2>
     <div class="divider fade-up"></div>
@@ -577,13 +595,13 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
 <div class="nav">
   <button onclick="prevSlide()">‹</button>
   <div class="nav-dots" id="navDots"></div>
-  <span id="navNum" style="font-size:11px;font-weight:600;color:var(--gray-300);letter-spacing:1px;min-width:44px;text-align:center">01 / 08</span>
+  <span id="navNum" style="font-size:11px;font-weight:600;color:var(--gray-300);letter-spacing:1px;min-width:44px;text-align:center">01 / 09</span>
   <button onclick="nextSlide()">›</button>
 </div>
 
 <script>
 const slides=document.querySelectorAll('.slide'),total=slides.length;let cur=0;
-function go(n){if(n<0||n>=total||n===cur)return;slides[cur].classList.remove('active');slides[cur].classList.add('exit');const prev=cur;setTimeout(()=>{slides[prev].classList.remove('exit');cur=n;slides[cur].classList.add('active');ui();if(cur===4)animateCounters();if(cur===6)renderWaterfall()},100)}
+function go(n){if(n<0||n>=total||n===cur)return;slides[cur].classList.remove('active');slides[cur].classList.add('exit');const prev=cur;setTimeout(()=>{slides[prev].classList.remove('exit');cur=n;slides[cur].classList.add('active');ui();if(cur===4)animateCounters();if(cur===6)renderWaterfall();if(cur===7){renderVelocity();renderDebt()}},100)}
 function nextSlide(){go(cur+1)}function prevSlide(){go(cur-1)}
 function ui(){document.getElementById('progress').style.width=((cur+1)/total*100)+'%';const num=String(cur+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');document.getElementById('slideNum').textContent=num;document.getElementById('navNum').textContent=num;document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===cur))}
 const dots=document.getElementById('navDots');for(let i=0;i<total;i++){const d=document.createElement('button');d.className='nav-dot'+(i===0?' active':'');d.textContent=i+1;d.onclick=()=>go(i);dots.appendChild(d)}
