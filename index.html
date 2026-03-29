@@ -161,10 +161,10 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
 .status-done { background: rgba(52,211,153,0.15); color: #34D399; border: 1px solid rgba(52,211,153,0.3); }
 .status-wip { background: rgba(251,191,36,0.15); color: #FBBF24; border: 1px solid rgba(251,191,36,0.3); }
 .ticket-points {
-  width: 28px; height: 28px; border-radius: 8px;
+  min-width: 28px; height: 28px; border-radius: 8px; padding: 0 8px;
   background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.3);
   display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 700; color: var(--purple-pl);
+  font-size: 12px; font-weight: 700; color: var(--purple-pl); white-space: nowrap; flex-shrink: 0;
 }
 .metric-card {
   background: rgba(20,32,54,0.5); border: 1px solid rgba(0,163,255,0.08);

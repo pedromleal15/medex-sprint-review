@@ -1,0 +1,25 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/pedromleal/Library/Application Support/Claude/local-agent-mode-sessions/623f9532-7232-48c6-a513-340f9b04d72c/f076b7f1-fdb9-4058-974e-2d87d2d6fad0/local_92cd2dde-e0ce-4b0d-8dec-6beb9f762410/outputs"
+publishOrigin = "default"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
