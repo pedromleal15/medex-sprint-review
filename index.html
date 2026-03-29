@@ -213,7 +213,7 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
 
 <div class="topbar"><div class="topbar-progress" id="progress"></div></div>
 <div class="brand">MEDEX</div>
-<div class="slide-number-badge" id="slideNum">01 / 09</div>
+<div class="slide-number-badge" id="slideNum">01 / 08</div>
 <button class="fullscreen-btn" onclick="toggleFullscreen()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg> Fullscreen</button>
 
 <div class="deck" id="deck">
@@ -438,43 +438,8 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
     </div>
   </div>
 
-  <!-- ═══ SLIDE 7 — COMPOSIÇÃO DO CRESCIMENTO ═══ -->
+  <!-- ═══ SLIDE 7 — VELOCIDADE & SAÚDE ═══ -->
   <div class="slide" id="slide-7">
-    <div class="eyebrow fade-up">Visão Consolidada</div>
-    <h2 class="fade-up">Composição do <span class="accent">Crescimento</span></h2>
-    <div class="divider fade-up"></div>
-    <p class="subtitle subtitle-wide fade-up" style="margin-bottom:28px">De 42% para 49.9% — como cada demanda contribuiu para o resultado. Cada barra representa a contribuição isolada de uma feature para o crescimento da Taxa de Conclusão.</p>
-    <div class="fade-up" style="display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start">
-      <div class="chart-box" id="chart-waterfall" style="min-height:340px"></div>
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <div class="metric-card">
-          <div class="mc-accent-line blue"></div>
-          <div class="mc-label">Leitura Rápida</div>
-          <div style="display:flex;flex-direction:column;gap:14px;margin-top:12px">
-            <div>
-              <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:12px;color:var(--gray-200)">PubMed Cards</span><span style="font-size:14px;font-weight:700;color:var(--white)">+3.2%</span></div>
-              <div class="impact-bar-track"><div class="impact-bar-fill fill-blue" style="width:40.5%"></div></div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:12px;color:var(--gray-200)">Otim. Fluxo</span><span style="font-size:14px;font-weight:700;color:var(--white)">+2.8%</span></div>
-              <div class="impact-bar-track"><div class="impact-bar-fill fill-blue" style="width:35.4%"></div></div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:12px;color:var(--gray-200)">Redesign Calc</span><span style="font-size:14px;font-weight:700;color:var(--white)">+1.9%</span></div>
-              <div class="impact-bar-track"><div class="impact-bar-fill fill-teal" style="width:24.1%"></div></div>
-            </div>
-          </div>
-          <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,163,255,0.1);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;color:var(--gray-300);font-weight:600">Total</span>
-            <span style="font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--blue-primary),var(--blue-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent">+7.9%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ SLIDE 8 — VELOCIDADE & SAÚDE ═══ -->
-  <div class="slide" id="slide-8">
     <div class="eyebrow fade-up">Health Check</div>
     <h2 class="fade-up">Velocidade & <span class="accent">Saúde</span></h2>
     <div class="divider fade-up"></div>
@@ -491,8 +456,8 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
     </div>
   </div>
 
-  <!-- ═══ SLIDE 9 — PRÓXIMAS PRIORIDADES ═══ -->
-  <div class="slide" id="slide-9">
+  <!-- ═══ SLIDE 8 — PRÓXIMAS PRIORIDADES ═══ -->
+  <div class="slide" id="slide-8">
     <div class="eyebrow fade-up">Próximos Passos</div>
     <h2 class="fade-up">Próximas <span class="accent">Prioridades</span></h2>
     <div class="divider fade-up"></div>
@@ -601,13 +566,13 @@ h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
 <div class="nav">
   <button onclick="prevSlide()">‹</button>
   <div class="nav-dots" id="navDots"></div>
-  <span id="navNum" style="font-size:11px;font-weight:600;color:var(--gray-300);letter-spacing:1px;min-width:44px;text-align:center">01 / 09</span>
+  <span id="navNum" style="font-size:11px;font-weight:600;color:var(--gray-300);letter-spacing:1px;min-width:44px;text-align:center">01 / 08</span>
   <button onclick="nextSlide()">›</button>
 </div>
 
 <script>
 const slides=document.querySelectorAll('.slide'),total=slides.length;let cur=0;
-function go(n){if(n<0||n>=total||n===cur)return;slides[cur].classList.remove('active');slides[cur].classList.add('exit');const prev=cur;setTimeout(()=>{slides[prev].classList.remove('exit');cur=n;slides[cur].classList.add('active');ui();if(cur===4)animateCounters();if(cur===6)renderWaterfall();if(cur===7){renderVelocity();renderDebt()}},100)}
+function go(n){if(n<0||n>=total||n===cur)return;slides[cur].classList.remove('active');slides[cur].classList.add('exit');const prev=cur;setTimeout(()=>{slides[prev].classList.remove('exit');cur=n;slides[cur].classList.add('active');ui();if(cur===4)animateCounters();if(cur===6){renderVelocity();renderDebt()}},100)}
 function nextSlide(){go(cur+1)}function prevSlide(){go(cur-1)}
 function ui(){document.getElementById('progress').style.width=((cur+1)/total*100)+'%';const num=String(cur+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');document.getElementById('slideNum').textContent=num;document.getElementById('navNum').textContent=num;document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===cur))}
 const dots=document.getElementById('navDots');for(let i=0;i<total;i++){const d=document.createElement('button');d.className='nav-dot'+(i===0?' active':'');d.textContent=i+1;d.onclick=()=>go(i);dots.appendChild(d)}
